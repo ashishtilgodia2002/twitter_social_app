@@ -7,5 +7,5 @@
 5. Run `bundle install`.
 6. Run `bundle exec rake db:create`.
 7. Run `bundle exec rake db:migrate`.  
-8. Run `foreman start`.  
-9. Open `http://localhost:9007/`.
+8. Start your server with `rails server`.  
+9. Open `http://localhost:3000/`.
