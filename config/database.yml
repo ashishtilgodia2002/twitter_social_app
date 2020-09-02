@@ -1,0 +1,6 @@
+development:
+  adapter: mysql2
+  database: twitter_development
+  encoding: utf8
+  username: root
+  host: localhost
