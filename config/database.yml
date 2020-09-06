@@ -3,4 +3,5 @@ development:
   database: twitter_development
   encoding: utf8
   username: root
+  password: root
   host: localhost

@@ -1,0 +1,22 @@
+# Locally override default configurations
+#
+# This file overrides configurations set in `config/config.defaults.yml`.
+# Keep in mind that environment variables override setting in this file.
+#
+# Usage:
+#
+# Copy this file from `config/config.example.yml` to `config/config.yml`
+#
+
+development:
+  twitter_app_id: "Zwnd9EFbLcTIOKQ9ABhDYiFoD"
+  twitter_secret_id: "ZOkop7eHzj2TA3d1LsebK4Xq0LLj2PXrYUOtwUd1s27PRCH9wi"
+
+test:
+  # Add local `test` environment configuration overrides here
+
+staging:
+  # Add local `staging` environment configuration overrides here
+
+production:
+  # Add local `production` environment configuration overrides here

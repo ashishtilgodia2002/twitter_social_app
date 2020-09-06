@@ -1,0 +1,7 @@
+My name is <%= @user.name %>
+<% @main_timeline.each do |timeline| %>
+  <div class="display_inline">
+    <%= timeline.text %>
+  </div>
+  <br>
+<% end %>

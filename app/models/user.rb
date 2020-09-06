@@ -49,6 +49,7 @@ class User < ActiveRecord::Base
       identity.user = user
       identity.save!
     end
+    user.update(access_token: auth.extra.access_token.token,secret_token: auth.extra.access_token.secret)
     user
   end
 

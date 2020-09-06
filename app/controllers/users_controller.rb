@@ -3,7 +3,10 @@ class UsersController < ApplicationController
 
   # GET /users/:id.:format
   def show
+    @user = User.find_by(id: params[:id])
     # authorize! :read, @user
+    twitter_client = client(@user)
+    @main_timeline = twitter_client.user_timeline
   end
 
   # GET /users/:id/edit
@@ -51,6 +54,16 @@ class UsersController < ApplicationController
   end
   
   private
+
+    def client(user)
+      Twitter::REST::Client.new do |config|
+        config.consumer_key        = "Zwnd9EFbLcTIOKQ9ABhDYiFoD"#"iS5BX4PblWTVv08r0uAMIfWLm"
+        config.consumer_secret     = "ZOkop7eHzj2TA3d1LsebK4Xq0LLj2PXrYUOtwUd1s27PRCH9wi"
+        config.access_token        = user.access_token
+        config.access_token_secret = user.secret_token
+      end
+    end
+
     def set_user
       @user = User.find(params[:id])
     end
