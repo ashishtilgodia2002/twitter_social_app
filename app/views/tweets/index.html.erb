@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="page-header row">
+    <h1 class="font-personal col-md-6 title"><small>@<%= current_user[:name] %></small></h1>
+
+    <button><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></button>
+    <button><%= link_to 'Home', root_path %></button>
+
+  </div>
+
+  <div class="container tweet-container">
+    <ul id="tweet-list" class="tweet-list">
+      <% @tweets.each do |tweet| %>
+        <%= render :partial => "tweets/tweet", :locals => { :tweet => tweet } %>
+      <% end %>
+      <!-- tweets rendered here as list elements !-->
+    </ul>
+  </div>
+
+</div>

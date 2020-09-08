@@ -1,12 +1,18 @@
+require 'twitter_factory'
+
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :finish_signup]
+  include TwitterFactory
+
+  before_action :authenticate_user!
+  before_action :set_user, only: [:show, :index, :edit, :update, :destroy, :finish_signup]
+
+  def index
+   
+  end
 
   # GET /users/:id.:format
   def show
-    @user = User.find_by(id: params[:id])
-    # authorize! :read, @user
-    twitter_client = client(@user)
-    @main_timeline = twitter_client.user_timeline
+   
   end
 
   # GET /users/:id/edit
@@ -54,18 +60,8 @@ class UsersController < ApplicationController
   end
   
   private
-
-    def client(user)
-      Twitter::REST::Client.new do |config|
-        config.consumer_key        = "Zwnd9EFbLcTIOKQ9ABhDYiFoD"#"iS5BX4PblWTVv08r0uAMIfWLm"
-        config.consumer_secret     = "ZOkop7eHzj2TA3d1LsebK4Xq0LLj2PXrYUOtwUd1s27PRCH9wi"
-        config.access_token        = user.access_token
-        config.access_token_secret = user.secret_token
-      end
-    end
-
     def set_user
-      @user = User.find(params[:id])
+      @user = current_user
     end
 
     def user_params

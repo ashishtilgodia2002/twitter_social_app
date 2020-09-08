@@ -1,10 +1,11 @@
 <div class="container-fluid">
   <div class="navbar-header">
-    <a class="navbar-brand" href="#">Twitter Social App</a>
+    <h3 class="navbar-brand" >Twitter Social App</h3>
   </div>
   <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
       <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'Timeline', tweets_path %></li>
       <% if current_user %>
         <li>Signed in as <%= current_user.name %></li>
         <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
